@@ -1,0 +1,1091 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+//For the icons
+
+//Side menu's width
+@espai-nav: 100px;
+@main-logo-size: 374px;
+@separator-color: rgba(127, 123, 123, 0.500);
+@their-red: #ed1d27;
+
+.spaced{
+    margin-top: 5vh;
+    letter-spacing: .5em;
+    text-transform: uppercase;
+}
+
+.caps{
+    text-transform: uppercase;
+}
+
+.bg-gradient() {
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 66%,rgba(0,0,0,0.66) 94%,rgba(10,5,5,0.8) 100%);
+}
+
+.bg-gradient-welcome() {
+    background: linear-gradient(to top, rgba(0,0,0,0) 66%,rgba(0,0,0,0.66) 94%,rgba(10,5,5,0.8) 100%);
+}
+
+.bg-gradient-top() {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.75) 2%,rgba(0,0,0,0.8) 15%,rgba(0,0,0,1) 48%,rgba(0,0,0,1) 100%);
+}
+
+.shared-properties(@top){
+    position: absolute;
+    top: @top;
+    width: 50%;
+    stroke: white;
+    position: absolute;
+}
+
+:root{
+    //Color for the letters inside of the svg
+	--color_lletres: white;
+    --vh: 100vh;
+    --vw: 100vw;
+}
+
+html {
+    font-family: "AvenirLTPro-Book", Helvetica, Arial, sans-serif;
+    color: white;
+}
+
+body>div{
+    height: 100vh;
+    width: 100%;
+}
+
+#loadPage{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    background-color: @their-red;
+    position: fixed;
+    z-index: 1000;
+    align-items: center;
+    svg{
+        position: relative;
+        max-width: 25%;
+        max-height: 25%;
+    }
+}
+
+.invisible{
+    transition: height 1s;
+    height: 0px;
+}
+
+body{
+    background: url(./images/fondo.jpeg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    
+}
+
+@media (max-width:1200px){
+    #media{
+        #main-pag{
+            width:100%;
+            margin-left: 0px;
+            padding-left: 0px;
+        }
+        #side-bar-nav{
+            height: 100px;
+            width: 100%;
+            background: none;
+            border-bottom: @separator-color 1px solid;
+            flex-direction: row;
+            #nav-logo{
+                border-right: @separator-color 1px solid;
+            }
+            #nav-section{
+                display:none;
+            }
+        }
+        #mini{
+            display: block;
+            height: 100%;
+            max-width: 20vw;
+            #contenidor-svg{
+                top: 15%;
+                max-width: 150px;
+                position: absolute;
+                right: 0;
+                margin-right: 5vw;
+            }
+        }
+    }
+}
+
+#mini{
+    display: none;
+}
+
+
+#nav-logo{
+    // Top left div. Inside of the side nav.
+    position: relative;
+    width: @espai-nav;
+    height: 100px;
+    border-bottom: 1px solid @separator-color;
+
+    .header-sidebar-nav-icon{
+        // Logo on the top left side of the screen
+        fill: var(--color_lletres);
+        stroke: var(--color_lletres);
+        width: 50%;
+        height: 50%;
+        position: relative;
+        left: 25%;
+        top: 25%;
+        &:hover{
+            fill: @their-red;
+            stroke: @their-red;
+        }
+    }
+
+}
+
+#contenidor-svg{
+    // ID inside of the svg file
+    width: 374px;
+}
+
+#test{
+    position: relative;
+    top: 60%;
+}
+
+.lletres-svg{
+    // stroke and fill for the letters inside of DEGENESIS logo
+	stroke: var(--color_lletres);
+	fill: var(--color_lletres);
+}
+
+p::selection{
+    background-color: @their-red;
+    color: #bcbcbc;
+}
+
+.lai{
+    // Dot on the I of the DEGENESIS logo
+	fill: @their-red;
+}
+
+
+aside{
+    //Side menu
+    display:none;
+    position: fixed;
+    flex-direction: column;
+    left: 0px;
+    top: 0px;
+    height: 100vh;
+    width: @espai-nav;
+    margin-right: 0px;
+    z-index: 1000;
+    border-right: 1px @separator-color solid;
+    color: white;
+    
+    #nav-section{
+        //Part of the menu that contains Degenesis, Login and play now
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        div:nth-child(1){
+            // Degenesis logo's div, inside of the side-nav
+            position: absolute;
+            top: 30%;
+            left: -10px;
+            width: max-content;
+            height: max-content;
+            &>svg{
+                // Degenesis logo
+                rotate: 90deg; 
+                height: 124px;
+                width: 124px;
+            }
+        }
+        #ql-cont{
+            // Quick Links container
+            position: absolute;
+            bottom: 125px;
+            left: -38px;
+            width: max-content;
+            height: max-content;
+            line-height: 28px;
+        }
+        #quick-links{
+            // Quick links div
+            rotate: 90deg;
+            display: flex;
+            height: max-content;
+            width: max-content;
+
+            align-items: center;
+
+            a{
+                // For the PLAY NOW link
+                color: @their-red;
+                text-decoration: none;
+            }
+
+            #nav-sep{
+                // LOGIN and PLAY NOW separator
+                background-color: @separator-color;
+                width: 30px;
+                margin-left: 8px;
+                margin-right: 8px;
+            }
+
+            a:nth-child(1){
+                // For the LOGIN link
+                color: white;
+                text-decoration: none;
+                &:hover{
+                    transition: color 0.5s;
+                    color: @their-red;
+                }
+            }
+        }
+    }
+}
+
+.separator{
+    height: 1px;
+    background-color: @separator-color;
+}
+
+//END OF SIDE MENU
+
+#main-pag{
+    padding-left: @espai-nav;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: calc(100% - @espai-nav);
+    background: linear-gradient(to bottom, rgba(28, 28, 28, 0) 8%, rgba(0, 0, 0, 0.74) 17%, rgba(0, 0, 0, 0.9) 19%, #000 22%, #000 100%);
+}
+
+#top-part{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#page-logo-cont{
+    height: max-content;
+    top: 50%;
+    flex-grow: 1;
+}
+
+#sub-title-logo{
+    // Subtitle that says REBIRTH EDITION
+    font-weight: 10;
+    font-size: 16px;
+    display: block;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    margin-top: 12px;
+    position: relative;
+    color: white;
+    left: 25%; // So it is in the middle of the DIV
+    letter-spacing: 0.3rem;
+    width: max-content;
+}
+
+#f2p{
+    color: white;
+    bottom: 0;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    margin-top: 12px;
+    left: calc(25% + @espai-nav);
+    letter-spacing: 0.3rem;
+    margin-bottom: 15px;
+}
+
+//END OF TOP PART
+
+#second-part{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+#welcome{
+    height: auto;
+    font-size: calc((89.999vw - 220px) / 6 * 1.015);
+    //.bg-gradient-welcome();
+}
+
+.text-down{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#contrapture-rebirth{
+    position: relative;
+    left: 0%;
+    width: 100%;
+
+    *{
+        left:25%;
+    }
+}
+
+.homewhatisdegenesis-circle{
+    .shared-properties(10%);
+    fill: rgba(255, 255, 255, 0);
+    
+}
+
+.homewhatisdegenesis-circle-path{
+    .shared-properties(10%);
+}
+
+.homewhatisdegenesis-triangle-inner{
+    .shared-properties(20%);
+}
+
+.homewhatisdegenesis-triangle-outer{
+    .shared-properties(20%);
+}
+
+#rebirth-cover-img{
+    // White image on top of the circle and triangle
+    margin-top: 12%;
+    left: 34%;
+    display: block;
+    z-index: 4;
+    width: 32%;
+    position: relative;
+}
+
+#forms_side_text{
+    //Whole div that contains a div on the side
+    color: #bcbcbc;
+    position: absolute;
+    top: 15%;
+    left: 75%;
+    width: auto;
+    height: max-content; 
+
+    #whatisdegenesis{
+        //Div that contains both p tags 
+        margin-top: 20%;
+        word-wrap: break-word;
+        color: #fff;
+        margin-right: 15%;
+
+        p + p{
+            // Text of the side-text menu
+            color: #bcbcbc;
+            margin-top: 60%;
+            font-size: 1.5vw;
+            font-family: "calluna", Georgia, serif;
+            font-weight: 500;
+            text-indent: 1em;
+
+            span{
+                color: @their-red;
+            }
+        }
+    }
+    
+    #whatisdegenesis_title{
+        // Title of the side text box
+        font-size: 1.5vw;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        *{
+            letter-spacing: .3em;
+        }
+        span:last-child{
+            color: @their-red;
+        }
+    }
+}
+
+#forms_separator{
+    // Separator div
+    top: 35%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+}
+
+a.ql-boxes{
+    &:hover{
+        background-color: @their-red;
+    }
+}
+
+.ql-boxes{
+    position: relative;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: .3em;
+    font-size: 1vw;
+    border-bottom: 1px solid @separator-color;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-top: grey 1px solid;
+    text-align: left;
+    color: white;  
+}
+
+#box-links-welcome{
+    // Three divs (boxes) that say VISIT SHOP, etc. (should be clickable)
+    margin-top: 40%;
+    position: relative;
+    top: 50%;
+    left: 0;
+    display: flex;
+    justify-content: space-evenly; 
+
+    &>a:first-of-type>svg{
+        rotate: 320deg;
+    }
+    
+    a{
+        background-color: #00000000;
+        left: 0;
+        width: 25%;
+
+        &::before {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            z-index: -2;
+            content: attr(texto);
+            position: absolute;
+            bottom: 0; /* Start from the bottom */
+            left: 0;
+            right: 0;
+            height: 100%; /* Full height */
+            background-color: @their-red; /* Color to transition to */
+            transform: translateY(100%); /* Start hidden (off-screen) */
+            transition: transform 1s ease; /* Transition effect */
+        }
+
+        &:hover::before {
+            transform: translateY(0); /* Move into view on hover */
+            z-index: 3;
+        }
+    
+        //NOT WORKING RN
+        &::before:not(:hover){
+            transform: translateY(100%);
+            transition: transform 1s ease;
+        }
+
+        svg{
+            z-index: 2;
+            width: 10px;
+        }
+    }
+}
+
+
+#hometeaser{
+    position: relative;
+    background-color: black;
+    #hometeaser-txt{
+        margin-top: 10%;
+        padding-left: 5%;
+        padding-right: 5%;
+        h3{
+            text-transform: uppercase;
+            letter-spacing: .6em;
+            color: white;
+            font-size: 1vw;
+        }
+
+        p{
+            margin-top: 2%;
+            text-indent: 1.6em;
+            font-family: "calluna", Georgia, serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 3.8vw;
+            line-height: 1.2em;
+            color: white;
+            span{
+                color: @their-red;
+            }
+        }
+    }
+}
+
+#homecultures{ // Section
+    background-color: black;
+
+    &>*{
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    #homecultures_upper{
+        margin-top: 10%;
+        display: flex;
+        justify-content: space-between;
+
+        p{
+            width: calc((89.999vw - 220px) / 6* 2 + 2vw);
+            text-indent: 1.6em;
+            font-family: "calluna", Georgia, serif;
+            font-style: normal;
+            font-weight: 500;
+            color: #bcbcbc;  
+        }
+
+        #title-left{
+            position: relative;
+            width: calc((89.999vw - 220px) / 6* 2 + 2vw);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            span:nth-child(1){
+                font-family: "calluna", Georgia, serif;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 5.2vw;
+                line-height: 1em;
+            }
+
+            div{
+                vertical-align: middle;
+                position: relative;
+                top: 30%;
+                margin-top: 10%;
+                width: 3rem;
+            }
+            span:nth-child(3){
+                margin-left: 10px;
+                padding: 0 0;
+                position: relative;
+                letter-spacing: .35em;
+                text-transform: uppercase;
+                display: inline-block;
+                align-items: center;
+                top: 25%;
+                height: max-content;
+            }
+        }
+    }
+
+    #homeslider{
+        margin-top: 5em;
+        position: relative;
+        margin-bottom: 5em;
+
+        #slider_hc{
+            scroll-snap-type: x mandatory;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            overflow-y: hidden;
+            overflow-x: scroll;
+
+            // We could MAYBE not hide the scrollbar, but I think it looks better this way, even if it has less functionality.
+
+            // Hide scrollbar for Chrome, Safari and Opera
+            &::-webkit-scrollbar {
+                display: none;
+            }
+              
+            // Hide scrollbar for IE, Edge and Firefox
+            -ms-overflow-style: none;  // IE and Edge
+            scrollbar-width: none;  // Firefox
+            
+            
+            &>img{
+                z-index: 2;
+                scroll-snap-align: center;
+                width: 26vw;
+                margin-right: calc((89.999vw - 220px) / 6* 0 + 2vw);
+            }
+        }
+
+        &>div:nth-child(2){
+            //Separator for the images
+            margin: 0 5%;
+            width: 95%;
+        }
+    }
+
+    #etw{ // EXPLORE THE WORLD
+        margin: 0 5%;
+        letter-spacing: .5em;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 3% 0;
+        font-size: 16px;
+
+        &:hover{
+            background-color: red;
+        }
+        p{
+            align-content: center;
+        }
+    }
+}
+
+/*.line-spaces{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+*/
+
+#special-arrow{
+    svg{
+        rotate:-45deg;
+    }
+}
+
+#homebooks{
+    padding: 0 5%;
+    background-color: #000;
+    position: relative;
+    h2{
+        font-size: calc((89.999vw - 220px) / 6* 0.9);
+        line-height: .85em;
+        text-transform: uppercase;
+        margin-top: 15%;
+        display: flex;
+        flex-direction: column;
+        span{
+            display:block;
+        }
+    }
+    #homebooks-container{ 
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10%;
+        border-top: 1px solid @separator-color;
+
+        div.hb-item:nth-child(2){
+            margin-left:5vw;
+        }
+
+        .hb-item{
+            margin-top: 10vh;
+            display: flex; 
+            justify-content: space-between;
+            width: calc((89.999vw - 220px) / 6* 3 + 4vw);
+
+            .hb-image-container{
+                width: calc((89.999vw - 220px) / 6* 1);
+                display: block;
+                position: relative;
+            }
+
+            .hb-img{
+                max-width: 100%;
+                height: auto;
+                display: block;
+                position: relative;
+            }
+
+            .hb-info-container{ // Contains the lines and the text
+                flex-grow: 2;
+                margin-left: 2vw;
+
+                .hb-qls{ // Contains all the quick-links
+                    display: flex;
+                    flex-direction: row;
+                    a:nth-child(2){
+                        margin-left: 2vw;
+                        svg{
+                            rotate:90deg;
+                        }
+                    }
+                    .hb-links{
+                        font-size: 16px;
+                        flex-grow: 1;
+                        padding: 5% 0;
+                        display: flex;
+                        max-width: 50%;
+                        text-align: left;
+                        letter-spacing: 0;
+                    }
+                }
+                &>span{ // For the book names
+                    text-transform: uppercase;
+                    font-size: 3vw;
+                    padding: 0 0;
+                    margin: 0 0;
+                }
+
+                .hb-info{ 
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    height: 25vh;
+
+                    ul{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-evenly;
+                    }
+
+                    ul>*{
+
+                        *:nth-child(4){
+                            background-color: red;
+                            margin-bottom: 0;
+                        }
+                    }
+                    
+
+                    .lines{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-evenly;
+                        width: calc((89.999vw - 220px) / 6* 1);
+                        &>div{
+                            width: 100%;
+                            background-color: red;
+                            height: 4px;
+                        }
+                        &>div:nth-child(5){
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &>a{ //EXPLORE ALL BOOKS
+        padding: 3% 0;
+        font-size: 16px;
+        align-items:center;
+    }
+}
+
+/* Does not work
+@media (max-width: 700px){
+    #media{
+        .hb-item{
+            flex-direction: column;
+            .hb-info{
+
+            }
+        }
+    }
+}
+*/
+
+#trailers{
+    margin-top: 20vh;
+    padding: 0% 5%;
+
+    h1{ // "TRAILER"
+        font-size: calc((89.999vw - 220px) / 6* 0.9);
+        margin-bottom: 5vh;
+    }
+
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2vw;
+        border: 1px solid hsla(0, 0%, 100%, .2);
+        position: relative;
+    }
+
+    a{ // "EXPLORE MULTIMEDIA"
+        align-items: center;
+        letter-spacing: .5rem;
+        font-size: 16px;
+        padding: 4% 0;
+        margin: 0;
+    }
+}
+
+#support-us{
+    background-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 13%,rgba(0,0,0,0.4) 29%,rgba(0,0,0,0.4) 69%,rgba(0,0,0,1) 82%,rgba(0,0,0,1) 100%), url("https://img2.storyblok.com/2627x923/filters:quality(90)/f/72501/3840x1349/38cdc69f0f/franka-defenses-of-rennes.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #000;
+    position: relative;
+    margin-top: 10vh;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10% 5%;
+    z-index: 5;
+    position: relative;
+    right: 10%;
+    width: 100%;
+    &>div:nth-child(1){ // LEFT SIDE
+        max-width: 50%;
+        margin-top: 1vh;
+        margin-left: 10%;
+        h2{
+            font-size: 7.8vw;
+        }
+        p{
+            width: 60%;
+            margin-top: 5vh;
+            text-indent: 1.6em;
+            color: #bcbcbc;
+        }
+    }
+
+
+    &>div:nth-child(2){ // RIGHT SIDE
+        height: 100%;
+        max-width: 50%;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        border-bottom: grey;
+        &>*{
+            margin-top: 5vh;
+        }
+        #support-header{
+            margin-top: 0;
+            min-width: 35vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            span{
+                font-size:18.2px;
+                font-family: "AvenirLTPro-Book", Helvetica, Arial, sans-serif;
+                text-transform: uppercase;
+            }
+            #header-icons{
+                display:flex;
+                flex-direction: row;
+                max-width: 50%;
+                overflow-wrap: normal;
+
+                *{
+                    margin-left:3vw;
+                }
+            }
+        }
+        #support-plan{
+            max-width: 50%;
+            position: relative;
+            left: 25%;
+            display: flex;
+            justify-content: center;
+            border-top: @separator-color;
+            border-bottom: @separator-color;
+
+            .selection-button {
+                border:none;
+                width: 50%;
+                padding: 20% 1vw;
+                color: #fff;
+                background-color: #00000000;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            
+            .selection-button.selected {
+                background-color: @their-red;
+            }
+        }
+        #amounts{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            &>div{
+                margin-top: 5vh;
+                padding: 5% 0;
+                border: 1px solid white;
+                border-radius: 0.5vw;
+                display: flex;
+                flex-direction: row;
+                border-right: none;
+                overflow: wrap;
+                span{
+                    display: flex;
+                    flex-grow:1;
+                    max-width: 85%;
+                    input{
+                        color: @separator-color;
+                        background-color: #000000;
+                        border: none;
+                    }
+                }
+                .recommended{
+                    display: flex;
+                    flex-direction: column;
+                    position: relative;
+                    left: 25%;
+                }
+            }
+            #donating-towards{
+                display: flex;
+                flex-direction: column;
+                border: none;
+                border-top: @separator-color 1px solid;
+                border-bottom: @separator-color 1px solid;
+                border-radius: 0;
+                label{
+                    text-transform: uppercase;
+                    color: #898989;
+                }
+                select{
+                    color: white; // You couldn't see anything in the original color
+                    background: none;
+                    border-right: none;
+                    border-left: none;
+                    border-bottom: #BBBCBE 1px solid;
+                    margin-top: 2vh;
+                    letter-spacing: 0;
+                    font-size: 16px;
+                    option{
+                        background-color: @separator-color;
+                        color: @their-red;
+                    }
+                }
+            }
+        }
+        &>button{
+            width: 100%;
+            line-height: 16vh;
+            background: none;
+            border: none;
+            color: white;
+            letter-spacing: 0.5rem;
+            font-size: 3vh;
+        }
+    }
+}
+
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 5%;
+
+    #top-left{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-bottom: @separator-color 1px solid;
+
+        svg{
+            max-width: 30%;
+        }
+
+        span{
+            color: #bcbcbc;
+            padding-bottom: 5%;
+            a{
+                color: #bcbcbc;
+                text-decoration: none;
+            }
+            p:nth-child(1){
+                color: white;
+            }
+            p{
+                margin-bottom: 1vh;
+            }
+            p:nth-child(5){
+                margin-bottom: 0;
+                &>a:hover{
+                    color: @their-red;
+                    transition: color 0.5s;
+                }
+            }
+        }
+    }
+
+    #top-right{
+        width: 50%;
+
+        .footer-creds{
+            padding: 5% 0;
+            border-bottom: @separator-color 1px solid;
+            p:nth-child(1){
+                color: #bcbcbc;
+                letter-spacing: .3em;
+                margin-bottom: 2vh;
+            }
+            
+        }
+    }
+
+    #footer-bottom{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 5vh 0;
+
+        font-size: 18px;
+        line-height: 28px;
+
+        &>div{
+            width: calc((89.999vw - 220px) / 6* 2 + 2vw);
+            display:flex;
+            justify-content: center;
+            flex-direction: column;
+            color: #bcbcbc;
+        }
+
+        div:nth-child(1){
+            span{
+                text-transform: uppercase;
+                letter-spacing: .3rem;
+            }
+            a{
+                color:white;
+                text-decoration: none;
+                max-width: max-content;
+                &:hover{
+                    color: @their-red;
+                    transition: color 0.5s ease;
+                }
+            }
+        }
+        div:nth-child(3){
+            justify-content: flex-end;
+            span{
+                width: 50%;
+                position: relative;
+                bottom: 0;
+                height: max-content;
+                padding-right: 2%;
+                text-align: right;
+            }
+            a{
+                width: 30%;
+            }
+            svg{
+                fill: #b46633;
+                width: 100%;
+            }
+            align-items: last baseline;
+            flex-direction: row;
+        }
+    }
+}
